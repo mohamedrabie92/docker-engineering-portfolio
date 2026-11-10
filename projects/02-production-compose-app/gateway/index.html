@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Docker Portfolio — Notes</title><style>body{font:16px system-ui;max-width:680px;margin:3rem auto;padding:0 1rem;color:#18202d}button,input{padding:10px;font-size:1rem}input{width:70%}li{margin:.6rem 0}small{color:#64748b}</style></head><body>
+<h1>Docker Engineering Notes</h1><p>Browser → Nginx → FastAPI → PostgreSQL. Redis tracks writes.</p>
+<form id="form"><input id="body" placeholder="Write a note (500 characters max)" maxlength="500" required><button>Add</button></form>
+<p id="message"></p><ul id="notes"></ul><small>Local demo. No authentication; do not publish publicly.</small>
+<script>
+const list=document.getElementById('notes'),message=document.getElementById('message');
+async function refresh(){const r=await fetch('/api/notes');if(!r.ok)throw Error('API unavailable');const d=await r.json();list.replaceChildren(...d.notes.map(n=>{const li=document.createElement('li');li.textContent=`#${n.id}: ${n.body}`;return li;}));}
+document.getElementById('form').addEventListener('submit',async e=>{e.preventDefault();try{const body=document.getElementById('body').value;const r=await fetch('/api/notes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({body})});if(!r.ok)throw Error('Could not save');document.getElementById('body').value='';message.textContent='Saved';await refresh();}catch(err){message.textContent=err.message;}});
+refresh().catch(err=>message.textContent=err.message);
+</script></body></html>

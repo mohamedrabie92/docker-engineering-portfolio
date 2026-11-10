@@ -1,0 +1,17 @@
+name: docker-polyglot-lab
+services:
+  python:
+    build: ./python
+    ports: ["127.0.0.1:8101:8080"]
+  node:
+    build: ./node
+    ports: ["127.0.0.1:8102:8080"]
+  go:
+    build: ./go
+    ports: ["127.0.0.1:8103:8080"]
+  java:
+    build: ./java
+    ports: ["127.0.0.1:8104:8080"]
+  ruby:
+    build: ./ruby
+    ports: ["127.0.0.1:8105:8080"]
