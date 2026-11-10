@@ -1,5 +1,7 @@
 # Docker Engineering Portfolio | 14-Day Docker-Only Track
 
+[![Docker CI](https://github.com/mohamedrabie92/docker-engineering-portfolio/actions/workflows/docker-ci.yml/badge.svg)](https://github.com/mohamedrabie92/docker-engineering-portfolio/actions/workflows/docker-ci.yml)
+
 **One course per day · 10 Udemy courses represented · 14 days · 3h 45m/day · 52h 30m**
 
 This repository is a **hands-on starter and evidence framework**, aligned with `planning/Docker-Mastery-14-Day-One-Course-Per-Day-DCA.xlsx`. The study plan deliberately teaches **one course at a time**. Days **12–14** are a contiguous Docker Certified Associate (DCA) study block; Kubernetes videos are explicitly excluded during these 14 days.
